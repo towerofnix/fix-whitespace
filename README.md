@@ -31,7 +31,7 @@ console.log(generateSitePage(
 ))
 ```
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
