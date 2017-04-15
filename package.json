@@ -1,6 +1,6 @@
 {
   "name": "fix-whitespace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny library that fixes whitespace in JavaScript template strings. Edit",
   "main": "fix-whitespace.js",
   "scripts": {
