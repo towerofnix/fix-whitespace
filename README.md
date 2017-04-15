@@ -31,6 +31,23 @@ console.log(generateSitePage(
 ))
 ```
 
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    (Begin head..)<title>Hello, world!</title>(..End head)
+    <meta charset='utf-8'>
+  </head>
+  <body>
+    <div id='content'>
+      (Begin content..)<ul><li>1</li>
+      <li>2</li>
+      <li>3</li></ul>(..End content)
+    </div>
+  </body>
+</html>
+```
+
 ## Documentation
 
 [Read the code!](fix-whitespace.js)
