@@ -1,7 +1,7 @@
 {
   "name": "fix-whitespace",
-  "version": "1.0.2",
-  "description": "A tiny library that fixes whitespace in JavaScript template strings. Edit",
+  "version": "1.0.3",
+  "description": "A tiny library that fixes whitespace in JavaScript template strings.",
   "main": "fix-whitespace.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
