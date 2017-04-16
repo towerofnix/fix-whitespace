@@ -34,7 +34,7 @@ function joinTemplateString(literals, ...values) {
   //
   // `
   // <ul>
-  //   ${items.map(item => `<li>${item}</li>`)}
+  //   ${items.map(item => `<li>${item}</li>`).join('\n')}
   // </ul>
   // `
   //
