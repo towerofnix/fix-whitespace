@@ -216,7 +216,8 @@ if (require.main === module) {
       </head>
       <body>
         <div id='content'>
-          (Begin content..)${content}(..End content)
+          ${"Early insert!"} (Begin content x1..)${content}(..end content; begin content x2..)${content}(..end content!)
+          ${"And back down."}
         </div>
       </body>
     </html>
@@ -228,7 +229,10 @@ if (require.main === module) {
     `,
 
     tag`
-      <ul>${items.map(x => `<li>${x}</li>`).join('\n')}</ul>
+      <ul>
+        ${items.map(x => `<li>${x}</li>`).join('\n')}
+      </ul>
+        <!-- Further indent at end! -->
     `
   ))
 }

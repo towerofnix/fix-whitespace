@@ -14,7 +14,8 @@ const generateSitePage = (head, content) => fixWhitespace`
     </head>
     <body>
       <div id='content'>
-        (Begin content..)${content}(..End content)
+        ${"Early insert!"} (Begin content x1..)${content}(..end content; begin content x2..)${content}(..end content!)
+        ${"And back down."}
       </div>
     </body>
   </html>
@@ -40,9 +41,18 @@ console.log(generateSitePage(
   </head>
   <body>
     <div id='content'>
-      (Begin content..)<ul><li>1</li>
-      <li>2</li>
-      <li>3</li></ul>(..End content)
+      Early insert! (Begin content x1..)<ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+        <!-- Further indent at end! -->(..end content; begin content x2..)<ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+          <!-- Further indent at end! -->(..end content!)
+      And back down.
     </div>
   </body>
 </html>
