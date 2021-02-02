@@ -60,13 +60,21 @@ function joinTemplateString(literals, ...values) {
     const value = values[literalI]
     if (value) {
       const lastLiteralLine = literalLines[literalLines.length - 1]
+      const lastResultLine = resultLines[resultLines.length - 1] || ''
 
-      const whitespaceAmount = whitespaceAtBeginning(lastLiteralLine)
+      // Normally we just add the whitespace from the last line of the current
+      // literal. However, if there are multiple literals corresponding to a
+      // single line of the tag input string, we want to use the whitespace
+      // from the latest result line - because the literal won't contain any
+      // of the result's indent!
+      const whitespaceAmountLit = whitespaceAtBeginning(lastLiteralLine)
+      const whitespaceAmountRes = whitespaceAtBeginning(lastResultLine)
+      const whitespaceAmountMax = Math.max(whitespaceAmountLit, whitespaceAmountRes)
 
       const [first, ...rest] = value.toString().split('\n')
 
       const modified = [first, ...rest.map(
-        line => ' '.repeat(whitespaceAmount) + line
+        line => ' '.repeat(whitespaceAmountMax) + line
       )]
 
       curResultLines = squishArrays(curResultLines, modified)
@@ -119,7 +127,7 @@ function squishArrays(arr1, arr2) {
   const result = arr1.slice(0, -1)
 
   const lastOfArr1 = arr1[arr1.length - 1]
- 
+
   result.push((lastOfArr1 || '') + first)
   result.push(...rest)
 
