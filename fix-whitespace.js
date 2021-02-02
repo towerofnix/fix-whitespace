@@ -158,8 +158,13 @@ function whitespaceAtBeginningMultiline(str) {
   //
   // Though the amount of whitespace on the third line is 2, the function
   // ignores this line, since it has no non-whitespace characters.
+  //
+  // In a string composed entirely of whitespace, the longest line length
+  // is returned.
 
-  const minWhitespace = str.split('\n').reduce(
+  const lines = str.split('\n')
+
+  return lines.reduce(
     (min, line) => {
       if (isOnlyWhitespace(line)) {
         return min
@@ -168,14 +173,8 @@ function whitespaceAtBeginningMultiline(str) {
       }
     },
 
-    Infinity
+    Math.max(...lines.map(line => line.length))
   )
-
-  if (minWhitespace === Infinity) {
-    return 0
-  } else {
-    return minWhitespace
-  }
 }
 
 function isOnlyWhitespace(str) {
